@@ -26,9 +26,7 @@ def generate_launch_description():
                    '/model/mrs_hudson/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry',
                    '/world/empty/model/mrs_hudson/joint_state@sensor_msgs/msg/JointState@ignition.msgs.Model',
                    'lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
-                   '/lidar/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked',
-                   '/depth_camera@sensor_msgs/msg/Image@ignition.msgs.Image',
-                   '/depth_camera/points@sensor_msgs/msg/PointCloud2@ignition.msgs.PointCloudPacked'],
+                   ],
         output='screen'
     )
 
