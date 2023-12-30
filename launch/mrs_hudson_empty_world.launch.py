@@ -25,7 +25,8 @@ def generate_launch_description():
         arguments=['/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
                    '/model/mrs_hudson/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry',
                    '/world/empty/model/mrs_hudson/joint_state@sensor_msgs/msg/JointState@ignition.msgs.Model',
-                   'lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
+                   '/lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
+                   '/camera@sensor_msgs/msg/Image@gz.msgs.Image',
                    ],
         output='screen'
     )

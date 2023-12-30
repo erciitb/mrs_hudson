@@ -14,7 +14,7 @@ def generate_launch_description():
 	pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 	sdf_file = os.path.join(pkg_project, 'models', 'mrs_hudson.urdf')
 	with open(sdf_file, 'r') as infp:
- 		robot_desc = infp.read()			
+ 		robot_desc = infp.read()	
  		
 	robot_state_publisher = Node(
   	 package='robot_state_publisher',
@@ -30,7 +30,7 @@ def generate_launch_description():
 	gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
-        launch_arguments={'gz_args': os.path.join(pkg_project, 'worlds', 'mrs_hudson.sdf')}.items(),
+        launch_arguments={'gz_args': os.path.join(pkg_project, 'worlds', 'mrs_hudson_arena.sdf')}.items(),
     	)
 	
 	bridge = Node(
@@ -49,7 +49,7 @@ def generate_launch_description():
 	package='rviz2',
 	executable='rviz2',
 	arguments=['-d', os.path.join(pkg_project, 'config', 'mrs_hudson.rviz')],
-	)	        
+	)        
 
 	return LaunchDescription([
 		robot_state_publisher,

@@ -206,6 +206,49 @@
           <visualize>true</visualize>
         </sensor>
       </link>
+     
+      <link name="camera_link">
+        <pose>0 0 0.57 0 0 0</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.000166667</ixx>
+            <iyy>0.000166667</iyy>
+            <izz>0.000166667</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.07 0.07 0.07</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.07 0.07 0.07</size>
+            </box>
+          </geometry>
+        </visual>
+        <sensor name="camera" type="camera">
+          <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+              <width>320</width>
+              <height>240</height>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>30</update_rate>
+          <visualize>true</visualize>
+          <topic>camera</topic>
+        </sensor>
+      </link>   
 
       <link name='left_wheel'>
         <pose>0 0.0591 0.04 1.57089 -0.192087 3.14159</pose>
@@ -331,6 +374,10 @@
       <joint name='lidar_sensor_joint' type='fixed'>
         <parent>base_link</parent>
         <child>lidar_link</child>
+      </joint>
+      <joint name='camera_sensor_joint' type='fixed'>
+        <parent>base_link</parent>
+        <child>camera_link</child>
       </joint>
       <plugin
         filename="libignition-gazebo-diff-drive-system.so"
